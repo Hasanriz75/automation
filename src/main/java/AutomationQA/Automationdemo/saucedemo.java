@@ -44,7 +44,7 @@ driver.get("https://www.saucedemo.com/inventory.html");
 	    if (e.equals("1")) {
 	    	System.out.println("Qty is 1");
 	    }
-	    driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt"));
+	    driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt")).click();
 	    driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
 	    driver.getCurrentUrl().contains("cart");
 	    driver.findElement(By.id("continue-shopping")).click();
