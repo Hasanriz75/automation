@@ -4,11 +4,17 @@ public class saucedemo {
 		// TODO Auto-generated method stub
 		
 		WebDriver driver = new ChromeDriver();
-		 // TC01
-           driver.get("https://www.saucedemo.com/inventory.html"); 
+		driver.get("https://www.saucedemo.com/inventory.html"); 
 		System.out.println("Verfying Scenario");
-		// TC02-TC03
+		
+		 // TC01
+         String pagetitle = driver.getTitle();
+         Assert.assertEquals(pagetitle,"Swag Labs");
+		// TC02
 		driver.manage().window().maximize();
+		WebElement cd = driver.findElement(By.id("user-name"));
+		cd.isDisplayed();
+		// TC03
 	    driver.findElement(By.id("user-name")).sendKeys("HASAN");
 	    driver.findElement(By.id("password")).sendKeys("Marziya");
 		// TC04
