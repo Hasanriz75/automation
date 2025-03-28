@@ -42,9 +42,13 @@ public class saucedemo {
 	    driver.findElement(By.id("user-name")).clear();
 	    driver.findElement(By.id("password")).click();
 	    driver.findElement(By.id("user-name")).sendKeys("standard_user");
+	    String firname = driver.findElement(By.id("user-name")).getAttribute("value");
+	    Assert.assertEquals(firname,"standard_user");
 	    Thread.sleep(2000);
 	    driver.findElement(By.name("password")).clear();
 	    driver.findElement(By.id("password")).sendKeys("secret_sauce");
+	    String lasname = driver.findElement(By.id("password")).getAttribute("value");
+	    Assert.assertEquals(lasname,"secret_sauce");
 		// TC07
 	    Thread.sleep(2000);
 	    Assert.assertTrue(driver.findElement(By.id("login-button")).isEnabled(),"CTA not clickable");
