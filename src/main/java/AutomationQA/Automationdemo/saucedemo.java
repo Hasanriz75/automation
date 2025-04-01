@@ -17,7 +17,7 @@ public class saucedemo {
 		driver.get("https://www.saucedemo.com/inventory.html"); 
 		System.out.println("Verfying Scenario");
 		
-		// TC01
+		// TC01-rss
         String pagetitle = driver.getTitle();
         Assert.assertEquals(pagetitle,"Swag Labs","Page Title not correct");
 		// TC02
