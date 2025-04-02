@@ -1,28 +1,14 @@
 package AutomationQA.Automationdemo;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class saucedemo {
-	private static Properties locators = new Properties();
-    
-    static {
-        // Load locators from properties file
-        try (FileInputStream fileInput = new FileInputStream("path_to_your_properties_file/locators.properties")) {
-            locators.load(fileInput);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	
     @SuppressWarnings("deprecation")
-	@Test
+	
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
