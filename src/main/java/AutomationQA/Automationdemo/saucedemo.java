@@ -1,5 +1,8 @@
 package AutomationQA.Automationdemo;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +11,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class saucedemo {
-	@SuppressWarnings("deprecation")
+	private static Properties locators = new Properties();
+    
+    static {
+        // Load locators from properties file
+        try (FileInputStream fileInput = new FileInputStream("path_to_your_properties_file/locators.properties")) {
+            locators.load(fileInput);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @SuppressWarnings("deprecation")
 	@Test
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -17,7 +30,7 @@ public class saucedemo {
 		driver.get("https://www.saucedemo.com/inventory.html"); 
 		System.out.println("Verfying Scenario");
 		
-		// TC01-rss
+		// TC01
         String pagetitle = driver.getTitle();
         Assert.assertEquals(pagetitle,"Swag Labs","Page Title not correct");
 		// TC02
@@ -26,10 +39,10 @@ public class saucedemo {
 		Assert.assertTrue(username.isDisplayed(),"Username is not displayed");
 		// TC03
 	    driver.findElement(By.id("user-name")).sendKeys("HASAN");
-	    String finame = driver.findElement(By.id("user-name")).getAttribute("value");
+		String finame = driver.findElement(By.id("user-name")).getAttribute("value");
 	    Assert.assertEquals(finame,"HASAN");
 	    driver.findElement(By.id("password")).sendKeys("Marziya");
-	    String liname = driver.findElement(By.id("password")).getAttribute("value");
+		String liname = driver.findElement(By.id("password")).getAttribute("value");
 	    Assert.assertEquals(liname,"Marziya");
 		// TC04
 	    driver.findElement(By.id("login-button")).click();
@@ -42,12 +55,12 @@ public class saucedemo {
 	    driver.findElement(By.id("user-name")).clear();
 	    driver.findElement(By.id("password")).click();
 	    driver.findElement(By.id("user-name")).sendKeys("standard_user");
-	    String firname = driver.findElement(By.id("user-name")).getAttribute("value");
+		String firname = driver.findElement(By.id("user-name")).getAttribute("value");
 	    Assert.assertEquals(firname,"standard_user");
 	    Thread.sleep(2000);
 	    driver.findElement(By.name("password")).clear();
 	    driver.findElement(By.id("password")).sendKeys("secret_sauce");
-	    String lasname = driver.findElement(By.id("password")).getAttribute("value");
+		String lasname = driver.findElement(By.id("password")).getAttribute("value");
 	    Assert.assertEquals(lasname,"secret_sauce");
 		// TC07
 	    Thread.sleep(2000);
@@ -103,7 +116,7 @@ public class saucedemo {
 	    Thread.sleep(2000); 
 		// TC23
 	    driver.findElement(By.id("first-name")).sendKeys("Hasan");
-	    String fname = driver.findElement(By.id("first-name")).getAttribute("value");
+		String fname = driver.findElement(By.id("first-name")).getAttribute("value");
 	    Assert.assertEquals(fname,"Hasan");
 		// TC24
 	    driver.findElement(By.id("last-name")).sendKeys("Sardar");
