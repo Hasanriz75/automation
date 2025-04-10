@@ -8,6 +8,7 @@ import org.testng.Assert;
 public class saucedemo {
 	
     @SuppressWarnings("deprecation")
+    
 	
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
